@@ -10,6 +10,10 @@ se Encuentra en el sgte Repositorio: https://github.com/melizeche/dolarPy
 
 ![Aquí la descripción de la imagen por si no carga](https://github.com/jcazalELPAKOMICHI/cotizacion/blob/master/Screenshot_20190807-172658_Cotizaci%C3%B3n%20del%20Dolar.redimensionado.jpg)
 
+![Aquí la descripción de la imagen por si no carga](https://github.com/jcazalELPAKOMICHI/cotizacion/blob/master/Screenshot_20190807-172711_Cotizaci%C3%B3n%20del%20Dolar.redimensionado.jpg)
+
+
+
 
 
 
