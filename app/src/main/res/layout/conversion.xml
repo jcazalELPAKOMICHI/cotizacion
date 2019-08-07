@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    >
+    <ImageView
+            android:layout_width="match_parent"
+            android:src="@drawable/dolar"
+            android:scaleType="matrix"
+            android:adjustViewBounds="true"
+            android:layout_height="match_parent"/>
+
+    <LinearLayout
+            android:background="#E6000000"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+
+    >
+        <TextView
+                android:id="@+id/banco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Banco de Prueba"
+                android:textSize="24sp"
+                android:textColor="@color/TextColor"
+                android:layout_marginTop="10dp"
+        />
+
+        <TextView
+                android:text="Calculo de Guaraníes a Dolares: Venta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/TextColor"
+        />
+        <TextView
+                android:id="@+id/valorVenta"
+                android:text="Dolar Venta: 6.500"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/TextColor"
+        />
+
+        <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+        >
+            <EditText
+                    android:id="@+id/converVenta"
+                    android:hint="Ingrese Valor"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:background="#cc000000"
+                    android:inputType="number"
+                    android:textColorHint="#ccffffff"
+                    android:textColor="#ccffffff"
+                    android:textSize="18sp"
+                    android:padding="10dp"
+            />
+            <Button
+                    android:id="@+id/btnCalcular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Convertir"
+                    style="@style/Widget.AppCompat.Button.Small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/rsVenta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/TextColor"
+        />
+        <TextView
+                android:text="Calculo de Dolares a Guaraníes: Compra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/TextColor"
+        />
+
+        <TextView
+                android:id="@+id/valorCompra"
+                android:text="Dolar Compra: 6.500"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/TextColor"
+        />
+
+        <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+        >
+            <EditText
+                    android:id="@+id/converCOMPRA"
+                    android:hint="Ingrese Valor"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:background="#cc000000"
+                    android:inputType="number"
+                    android:textColorHint="#ccffffff"
+                    android:textColor="#ccffffff"
+                    android:textSize="18sp"
+                    android:padding="10dp"
+            />
+            <Button
+                    android:id="@+id/btnCalcular2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Convertir"
+                    style="@style/Widget.AppCompat.Button.Small"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/rsCompra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:textColor="@color/TextColor"
+
+        />
+    </LinearLayout>
+</RelativeLayout>
