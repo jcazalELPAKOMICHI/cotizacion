@@ -58,11 +58,14 @@
         >
             <EditText
                     android:id="@+id/converVenta"
-                    android:hint="Ingrese Valor"
+                    android:hint="Ingrese Valor en Guaraníes"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:background="#cc000000"
-                    android:inputType="number"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
                     android:textColorHint="#ccffffff"
                     android:textColor="#ccffffff"
                     android:textSize="18sp"
@@ -116,11 +119,14 @@
         >
             <EditText
                     android:id="@+id/converCOMPRA"
-                    android:hint="Ingrese Valor"
+                    android:hint="Ingrese Cantidad de Dolares"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:background="#cc000000"
-                    android:inputType="number"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:singleLine="true"
                     android:textColorHint="#ccffffff"
                     android:textColor="#ccffffff"
                     android:textSize="18sp"

@@ -16,7 +16,11 @@ import java.text.NumberFormat
 import java.util.*
 
 class conversion : AppCompatActivity() {
-    var current: String = ""
+
+
+    var conver:NumberTextWatcher?= null
+    var conver2:NumberTextWatcher?= null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.conversion)
@@ -27,8 +31,11 @@ class conversion : AppCompatActivity() {
         var compra = intent.extras?.getString("compra")?.replace(".", "")?.replace(",", ".")
         var resultado: Double
 
-        NumberTextWatcher(converVenta)
-        NumberTextWatcher(converCOMPRA)
+        conver = NumberTextWatcher(converVenta)
+        conver2 = NumberTextWatcher(converCOMPRA)
+        converVenta.addTextChangedListener(conver)
+        converCOMPRA.addTextChangedListener(conver2)
+
 
         converVenta.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
@@ -70,7 +77,7 @@ class conversion : AppCompatActivity() {
 
             if (!converVenta.text.isEmpty() && !converVenta.text.equals("0")) {
                 if (venta != null) {
-                    resultado = converVenta.text.toString().toDouble() / venta.toDouble()
+                    resultado = converVenta.text.toString().replace(".","").replace(",",".").toDouble() / venta.toDouble()
                     rsVenta.text = "Resultado: $" + decimalFormat(resultado.toString())
                     hideSoftKeyBoard()
                 }
@@ -83,7 +90,7 @@ class conversion : AppCompatActivity() {
             if (!converCOMPRA.text.isEmpty() && !converCOMPRA.text.equals("0")) {
 
                 if (compra != null) {
-                    resultado = converCOMPRA.text.toString().toDouble() * compra.toDouble()
+                    resultado = converCOMPRA.text.toString().replace(".","").replace(",",".").toDouble() * compra.toDouble()
                     rsCompra.text = "Resultado: Gs." + decimalFormat(resultado.toString())
                     hideSoftKeyBoard()
 
@@ -108,7 +115,6 @@ class conversion : AppCompatActivity() {
         inputMethodManager.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
 
     }
-
 
 
 }

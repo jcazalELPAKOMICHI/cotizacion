@@ -4,7 +4,6 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cotizaciondolar.Model.Result
@@ -21,19 +20,32 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-    var prog: ProgressDialog?= null
+    var prog: ProgressDialog? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         prog = ProgressDialog(this)
 
-        getCambio()
+        getCambio(true)
 
         evt()
 
-            my_swipeRefresh_Layout.setOnRefreshListener {
-            getCambio()
+        my_swipeRefresh_Layout.setOnRefreshListener {
+            getCambio(false)
         }
+
+
+        /*GuideView.Builder(this)
+            .setTitle("Este Elemento es el Titulo")
+            .setContentText("El Cuerpo del Texto")
+            .setGravity(Gravity.auto)
+            .setDismissType(DismissType.)
+            .setTargetView(lyAmambay)
+            .setContentTextSize(12)
+            .setTitleTextSize(14)
+            .build()
+            .show()*/
+
     }
 
     private fun getRetrofit(): Retrofit {
@@ -49,10 +61,13 @@ class MainActivity : AppCompatActivity() {
         return retroCumbiaSabrosa
     }
 
-    private fun getCambio() {
-        prog?.setMessage("Obteniendo Datos...")
-        prog?.setCanceledOnTouchOutside(false)
-        prog?.show()
+    private fun getCambio(bandera: Boolean) {
+
+        if (bandera) {
+            prog?.setMessage("Obteniendo Datos...")
+            prog?.setCanceledOnTouchOutside(false)
+            prog?.show()
+        }
         doAsync {
             val call = getRetrofit().create(APIService::class.java).getMoneda().execute()
             val datos = call.body() as Result
@@ -92,22 +107,36 @@ class MainActivity : AppCompatActivity() {
                 comSET.text = decimalFormat(datos.dolarpy.set.compra)
                 ventSET.text = decimalFormat(datos.dolarpy.set.venta)
                 my_swipeRefresh_Layout.isRefreshing = false
-                prog?.hide()
+
+                if (bandera)
+                    prog?.hide()
 
             }
         }
 
     }
 
+
     override fun onResume() {
         super.onResume()
-        getCambio()
+
+        /*   GuideView.Builder(this)
+               .setTitle("Este Elemento es el Titulo")
+               .setContentText("El Cuerpo del Texto")
+               .setGravity(Gravity.auto)
+               .setDismissType(DismissType.anywhere)
+               .setTargetView(lyAmambay)
+               .setContentTextSize(12)
+               .setTitleTextSize(14)
+               .build()
+               .show()*/
+
     }
 
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun dateFormat(value: String): String {
-        var parseDate: Date? = null
+        var parseDate: Date
 
         val formatInicial = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         parseDate = formatInicial.parse(value)
