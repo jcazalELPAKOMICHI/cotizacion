@@ -7,6 +7,9 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cotizaciondolar.Model.Result
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,16 +18,28 @@ import org.jetbrains.anko.uiThread
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
     var prog: ProgressDialog? = null
+
+    lateinit var mAdView: AdView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        MobileAds.initialize(this, "ca-app-pub-1097222336104871~5261704462")
+
         setContentView(R.layout.activity_main)
         prog = ProgressDialog(this)
+
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().addTestDevice("33BE2250B43518CCDA7DE426D04EE231").build()
+        mAdView.loadAd(adRequest)
 
         getCambio(true)
 
@@ -77,35 +92,35 @@ class MainActivity : AppCompatActivity() {
                     lbCotizacion.text = "Cotización de la Fecha \n " + dateFormat(datos.updated)
                 }
                 //Banco Amambay
-                compAmambay.text = decimalFormat(datos.dolarpy.amambay.compra)
-                ventAmambay.text = decimalFormat(datos.dolarpy.amambay.venta)
+                compAmambay.text = "Gs." + decimalFormat(datos.dolarpy.amambay.compra)
+                ventAmambay.text = "Gs." + decimalFormat(datos.dolarpy.amambay.venta)
                 //Banco BBVA
-                comBBVA.text = decimalFormat(datos.dolarpy.bbva.compra)
-                ventBBVA.text = decimalFormat(datos.dolarpy.bbva.venta)
+                comBBVA.text = "Gs." + decimalFormat(datos.dolarpy.bbva.compra)
+                ventBBVA.text = "Gs." + decimalFormat(datos.dolarpy.bbva.venta)
                 //Banco BBVA
-                comBCP.text = decimalFormat(datos.dolarpy.bcp.compra)
-                ventBCP.text = decimalFormat(datos.dolarpy.bcp.venta)
+                comBCP.text = "Gs." + decimalFormat(datos.dolarpy.bcp.compra)
+                ventBCP.text = "Gs." + decimalFormat(datos.dolarpy.bcp.venta)
                 //Banco BBVA
-                comCAMALBERDI.text = decimalFormat(datos.dolarpy.cambiosalberdi.compra)
-                ventCAMALBERDI.text = decimalFormat(datos.dolarpy.cambiosalberdi.venta)
+                comCAMALBERDI.text = "Gs." + decimalFormat(datos.dolarpy.cambiosalberdi.compra)
+                ventCAMALBERDI.text = "Gs." + decimalFormat(datos.dolarpy.cambiosalberdi.venta)
                 //Banco BBVA
-                comCHACO.text = decimalFormat(datos.dolarpy.cambioschaco.compra)
-                ventCHACO.text = decimalFormat(datos.dolarpy.cambioschaco.venta)
+                comCHACO.text = "Gs." + decimalFormat(datos.dolarpy.cambioschaco.compra)
+                ventCHACO.text = "Gs." + decimalFormat(datos.dolarpy.cambioschaco.venta)
                 //Euro Cambios
-                comEU.text = decimalFormat(datos.dolarpy.eurocambios.compra)
-                ventEU.text = decimalFormat(datos.dolarpy.eurocambios.venta)
+                comEU.text = "Gs." + decimalFormat(datos.dolarpy.eurocambios.compra)
+                ventEU.text = "Gs." + decimalFormat(datos.dolarpy.eurocambios.venta)
                 //Interfisa Cambios
-                comIN.text = decimalFormat(datos.dolarpy.interfisa.compra)
-                ventIN.text = decimalFormat(datos.dolarpy.interfisa.venta)
+                comIN.text = "Gs." + decimalFormat(datos.dolarpy.interfisa.compra)
+                ventIN.text = "Gs." + decimalFormat(datos.dolarpy.interfisa.venta)
                 //Maxi Cambios
-                comMAX.text = decimalFormat(datos.dolarpy.maxicambios.compra)
-                ventMAX.text = decimalFormat(datos.dolarpy.maxicambios.venta)
+                comMAX.text = "Gs." + decimalFormat(datos.dolarpy.maxicambios.compra)
+                ventMAX.text = "Gs." + decimalFormat(datos.dolarpy.maxicambios.venta)
                 //Interfisa Cambios
-                comMY.text = decimalFormat(datos.dolarpy.mydcambios.compra)
-                ventMY.text = decimalFormat(datos.dolarpy.mydcambios.venta)
+                comMY.text = "Gs." + decimalFormat(datos.dolarpy.mydcambios.compra)
+                ventMY.text = "Gs." + decimalFormat(datos.dolarpy.mydcambios.venta)
                 //Maxi Cambios
-                comSET.text = decimalFormat(datos.dolarpy.set.compra)
-                ventSET.text = decimalFormat(datos.dolarpy.set.venta)
+                comSET.text = "Gs." + decimalFormat(datos.dolarpy.set.compra)
+                ventSET.text = "Gs." + decimalFormat(datos.dolarpy.set.venta)
                 my_swipeRefresh_Layout.isRefreshing = false
 
                 if (bandera)
@@ -145,9 +160,16 @@ class MainActivity : AppCompatActivity() {
         return format.format(parseDate)
     }
 
+
+
     fun decimalFormat(value: String): String {
+
+        val symbols = DecimalFormatSymbols(Locale.getDefault())
+        symbols.decimalSeparator = ','
+        symbols.groupingSeparator = '.'
+
         var num: Double = value.toDouble()
-        val df = DecimalFormat("#,###.##")
+        val df = DecimalFormat("#,###.##", symbols)
         return df.format(num)
 
     }

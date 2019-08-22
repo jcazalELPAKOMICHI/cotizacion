@@ -3,13 +3,13 @@
           package="com.example.cotizaciondolar">
     <uses-permission android:name="android.permission.INTERNET"/>
 
-
     <application
             android:allowBackup="true"
             android:icon="@drawable/icono"
             android:label="@string/app_name"
             android:roundIcon="@drawable/icono"
             android:supportsRtl="true"
+
             android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
@@ -23,6 +23,10 @@
                 android:name=".conversion"
                 android:screenOrientation="portrait" />
         <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
+        <meta-data
+                android:name="com.google.android.gms.ads.APPLICATION_ID"
+                android:value="ca-app-pub-1097222336104871~5261704462"/>
+
     </application>
 
 </manifest>

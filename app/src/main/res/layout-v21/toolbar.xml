@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:background="#004481"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:clickable="true"
+        android:focusable="true">
+    <ImageView
+            android:id="@+id/ivBack"
+            android:src="?attr/homeAsUpIndicator"
+            android:layout_width="30dp"
+            android:layout_height="38dp"
+            android:tint="@color/TextColor"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:text="Cotización del Dolar PY"
+            android:textColor="@color/TextColor"
+            android:textSize="20dp"
+
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed" />
+
+</Toolbar>

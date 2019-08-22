@@ -1,210 +1,345 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
->
+        tools:context=".MainActivity">
+    <include
+            android:id="@+id/tbHome"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:layout_gravity="center_vertical"
 
+            />
     <ImageView
             android:layout_width="match_parent"
-            android:src="@drawable/dolar"
-            android:scaleType="matrix"
+            android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:layout_height="match_parent"/>
+            android:scaleType="fitXY"
+
+            android:src="@drawable/dolar" />
 
     <LinearLayout
-            android:background="#cc000000"
+            android:id="@+id/contenido"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-    >
+            android:layout_height="670dp"
+            android:layout_below="@+id/tbHome"
+            android:background="#cc000000"
+            android:orientation="vertical">
 
         <TextView
                 android:id="@+id/lbCotizacion"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:textSize="28sp"
+                android:layout_height="70dp"
+                android:background="#cc1976D2"
+                android:gravity="center_vertical"
                 android:text="Cotización a la Fecha"
                 android:textColor="@color/TextColor"
-                android:background="#cc1976D2"
-                android:gravity="center_horizontal|center_vertical"
+                android:textSize="20sp"
+                android:padding="10dp"
+                app:fontFamily="@font/alegreya_sans"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" app:fontFamily="@font/alegreya_sans"/>
+                app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/my_swipeRefresh_Layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
-                        android:fillViewport="true">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
 
 
                 <TableLayout
+                        android:id="@+id/tabla"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_horizontal"
-                >
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal">
+
                     <TableRow
                             android:id="@+id/tableRow1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="5dip"
                             android:gravity="center_horizontal"
-                    >
+                            android:padding="5dp">
 
 
                         <LinearLayout
                                 android:id="@+id/lyAmambay"
-                                android:layout_width="match_parent"
+                                android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-
-                                android:padding="20dp"
                                 android:background="@drawable/esquinas_redondeadas"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="20dp"
 
-                        >
+                                >
 
                             <TextView
                                     android:id="@+id/amambay"
-                                    android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                    android:textSize="16sp"
-                                    android:layout_height="wrap_content" android:text="Banco Amambay"/>
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:autoSizeMaxTextSize="100sp"
+                                    android:autoSizeMinTextSize="12sp"
+                                    android:autoSizeStepGranularity="2sp"
+                                    android:autoSizeTextType="uniform"
+                                    android:text="Banco Amambay"
+                                    android:textColor="@color/TextColor"
+                                    android:textStyle="bold" />
 
 
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Compra:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/compAmambay"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true" android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:autoSizeTextType="uniform"
+                                        android:text="Compra:"
+                                        android:textColor="@color/TextColor" />
+
+                                <TextView
+                                        android:id="@+id/compAmambay"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+
+                                        android:layout_marginLeft="10dp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:autoSizeTextType="uniform"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Venta:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/ventAmambay"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:autoSizeTextType="uniform"
+                                        android:text="Venta:"
+                                        android:textColor="@color/TextColor" />
+
+                                <TextView
+                                        android:id="@+id/ventAmambay"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:autoSizeTextType="uniform"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
                         </LinearLayout>
 
                         <LinearLayout
                                 android:id="@+id/lybbva"
-                                android:layout_width="match_parent"
+                                android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="20dp"
                                 android:layout_marginLeft="5dp"
                                 android:background="@drawable/esquinas_redondeadas"
+                                android:orientation="vertical"
+                                android:layout_weight="1"
+                                android:padding="20dp"
 
-                        >
+                                >
 
                             <TextView
                                     android:id="@+id/bbva"
-                                    android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                    android:textSize="16sp"
-                                    android:layout_height="wrap_content" android:text="Banco BBVA"/>
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:autoSizeMaxTextSize="100sp"
+                                    android:autoSizeMinTextSize="12sp"
+                                    android:autoSizeStepGranularity="2sp"
+                                    android:autoSizeTextType="uniform"
+                                    android:text="Banco BBVA"
+                                    android:textColor="@color/TextColor"
+                                    android:textStyle="bold" />
 
 
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Compra:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/comBBVA"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:autoSizeTextType="uniform"
+                                        android:text="Compra:"
+                                        android:textColor="@color/TextColor" />
+
+                                <TextView
+                                        android:id="@+id/comBBVA"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:autoSizeTextType="uniform"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Venta:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/ventBBVA"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:autoSizeTextType="uniform"
+
+                                        android:text="Venta:"
+                                        android:textColor="@color/TextColor"
+                                        android:textSize="14sp" />
+
+                                <TextView
+                                        android:id="@+id/ventBBVA"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:autoSizeTextType="uniform"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
                         </LinearLayout>
                     </TableRow>
+
                     <TableRow
                             android:id="@+id/tableRow2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="5dip"
                             android:gravity="center_horizontal"
-                    >
+                            android:padding="5dp">
+
                         <LinearLayout
                                 android:id="@+id/lybcp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:background="@drawable/esquinas_redondeadas"
                                 android:orientation="vertical"
                                 android:padding="20dp"
-                                android:background="@drawable/esquinas_redondeadas"
-
-                        >
+                                android:layout_weight="1"
+                                >
 
                             <TextView
                                     android:id="@+id/bcp"
-                                    android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                    android:textSize="16sp"
-                                    android:layout_height="wrap_content" android:text="BCP"/>
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:autoSizeMaxTextSize="100sp"
+                                    android:autoSizeMinTextSize="12sp"
+                                    android:autoSizeStepGranularity="2sp"
+                                    android:autoSizeTextType="uniform"
+                                    android:text="BCP"
+                                    android:textColor="@color/TextColor"
+                                    android:textStyle="bold" />
 
 
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Compra:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/comBCP"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:autoSizeTextType="uniform"
+                                        android:text="Compra:"
+                                        android:textColor="@color/TextColor" />
+
+                                <TextView
+                                        android:id="@+id/comBCP"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:autoSizeTextType="uniform"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Venta:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/ventBCP"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:autoSizeTextType="uniform"
+                                        android:text="Venta:"
+                                        android:textColor="@color/TextColor" />
+
+                                <TextView
+                                        android:id="@+id/ventBCP"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
                         </LinearLayout>
@@ -213,46 +348,87 @@
                                 android:id="@+id/lyalberdi"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
                                 android:layout_marginLeft="5dp"
-                                android:padding="20dp"
                                 android:background="@drawable/esquinas_redondeadas"
-
-                        >
+                                android:orientation="vertical"
+                                android:padding="20dp"
+                                android:layout_weight="1"
+                                >
 
                             <TextView
                                     android:id="@+id/alberdi"
-                                    android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                    android:textSize="16sp"
-                                    android:layout_height="wrap_content" android:text="Cambios Alberdi"/>
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Cambios Alberdi"
+                                    android:textColor="@color/TextColor"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="12sp"
+                                    android:autoSizeMaxTextSize="100sp"
+                                    android:autoSizeStepGranularity="2sp"
+                                    android:textStyle="bold" />
 
 
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Compra:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/comCAMALBERDI"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Compra:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                         />
+
+                                <TextView
+                                        android:id="@+id/comCAMALBERDI"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold"/>
 
                             </RelativeLayout>
+
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Venta:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/ventCAMALBERDI"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Venta:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        />
+
+                                <TextView
+                                        android:id="@+id/ventCAMALBERDI"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
                         </LinearLayout>
@@ -262,53 +438,94 @@
                             android:id="@+id/tableRow3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="5dip"
                             android:gravity="center_horizontal"
-                    >
+                            android:padding="5dp">
+
                         <LinearLayout
                                 android:id="@+id/lychaco"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-
-                                android:padding="20dp"
                                 android:background="@drawable/esquinas_redondeadas"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="20dp"
 
-                        >
+                                >
 
                             <TextView
                                     android:id="@+id/chaco"
-                                    android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                    android:textSize="16sp"
-                                    android:layout_height="wrap_content" android:text="Cambios Chaco"/>
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Cambios Chaco"
+                                    android:textColor="@color/TextColor"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="12sp"
+                                    android:autoSizeMaxTextSize="100sp"
+                                    android:autoSizeStepGranularity="2sp"
+                                    android:textStyle="bold" />
 
 
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Compra:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/comCHACO"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Compra:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                         />
+
+                                <TextView
+                                        android:id="@+id/comCHACO"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Venta:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/ventCHACO"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Venta:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                         />
+
+                                <TextView
+                                        android:id="@+id/ventCHACO"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
                         </LinearLayout>
@@ -318,46 +535,87 @@
                                 android:id="@+id/lyeuro"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
                                 android:layout_marginLeft="5dp"
-                                android:padding="20dp"
                                 android:background="@drawable/esquinas_redondeadas"
-
-                        >
+                                android:orientation="vertical"
+                                android:padding="20dp"
+                                android:layout_weight="1"
+                                >
 
                             <TextView
                                     android:id="@+id/euro"
-                                    android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                    android:textSize="16sp"
-                                    android:layout_height="wrap_content" android:text="Euro Cambios"/>
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Euro Cambios"
+                                    android:textColor="@color/TextColor"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="12sp"
+                                    android:autoSizeMaxTextSize="100sp"
+                                    android:autoSizeStepGranularity="2sp"
+                                    android:textStyle="bold" />
 
 
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Compra:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/comEU"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Compra:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                         />
+
+                                <TextView
+                                        android:id="@+id/comEU"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Venta:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/ventEU"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Venta:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                         />
+
+                                <TextView
+                                        android:id="@+id/ventEU"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
                         </LinearLayout>
@@ -368,53 +626,90 @@
                             android:id="@+id/tableRow4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="5dip"
                             android:gravity="center_horizontal"
-                    >
+                            android:padding="5dp">
+
                         <LinearLayout
                                 android:id="@+id/lyinterfisa"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-
-                                android:padding="20dp"
                                 android:background="@drawable/esquinas_redondeadas"
 
-                        >
+                                android:orientation="vertical"
+                                android:padding="20dp"
+                                android:layout_weight="1"
+                                >
 
                             <TextView
                                     android:id="@+id/interf"
-                                    android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                    android:textSize="16sp"
-                                    android:layout_height="wrap_content" android:text="Interfisa"/>
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Interfisa"
+                                    android:textColor="@color/TextColor"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="12sp"
+                                    android:autoSizeMaxTextSize="100sp"
+                                    android:autoSizeStepGranularity="2sp"
+                                    android:textStyle="bold" />
 
 
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Compra:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/comIN"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Compra:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                         />
+
+                                <TextView
+                                        android:id="@+id/comIN"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Venta:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/ventIN"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Venta:"
+                                        android:textColor="@color/TextColor"
+                                        android:textSize="14sp" />
+
+                                <TextView
+                                        android:id="@+id/ventIN"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
                         </LinearLayout>
@@ -424,46 +719,87 @@
                                 android:id="@+id/lymaxi"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
                                 android:layout_marginLeft="5dp"
-                                android:padding="20dp"
                                 android:background="@drawable/esquinas_redondeadas"
-
-                        >
+                                android:orientation="vertical"
+                                android:padding="20dp"
+                                android:layout_weight="1"
+                                >
 
                             <TextView
                                     android:id="@+id/maxi"
-                                    android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                    android:textSize="16sp"
-                                    android:layout_height="wrap_content" android:text="Maxi Cambios"/>
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Maxi Cambios"
+                                    android:textColor="@color/TextColor"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="12sp"
+                                    android:autoSizeMaxTextSize="100sp"
+                                    android:autoSizeStepGranularity="2sp"
+                                    android:textStyle="bold" />
 
 
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Compra:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/comMAX"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Compra:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                         />
+
+                                <TextView
+                                        android:id="@+id/comMAX"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Venta:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/ventMAX"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Venta:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                         />
+
+                                <TextView
+                                        android:id="@+id/ventMAX"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
                         </LinearLayout>
@@ -474,53 +810,94 @@
                             android:id="@+id/tableRow5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="5dip"
                             android:gravity="center_horizontal"
-                    >
+                            android:padding="5dp">
+
                         <LinearLayout
                                 android:id="@+id/lymyd"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-
-                                android:padding="20dp"
                                 android:background="@drawable/esquinas_redondeadas"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="20dp"
 
-                        >
+                                >
 
                             <TextView
                                     android:id="@+id/myd"
-                                    android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                    android:textSize="16sp"
-                                    android:layout_height="wrap_content" android:text="MyD Cambios"/>
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="MyD Cambios"
+                                    android:textColor="@color/TextColor"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="12sp"
+                                    android:autoSizeMaxTextSize="100sp"
+                                    android:autoSizeStepGranularity="2sp"
+                                    android:textStyle="bold"/>
 
 
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Compra:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/comMY"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Compra:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        />
+
+                                <TextView
+                                        android:id="@+id/comMY"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Venta:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/ventMY"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Venta:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        />
+
+                                <TextView
+                                        android:id="@+id/ventMY"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
                         </LinearLayout>
@@ -530,46 +907,87 @@
                                 android:id="@+id/lyset"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
                                 android:layout_marginLeft="5dp"
-                                android:padding="20dp"
                                 android:background="@drawable/esquinas_redondeadas"
-
-                        >
+                                android:orientation="vertical"
+                                android:padding="20dp"
+                                android:layout_weight="1"
+                                >
 
                             <TextView
                                     android:id="@+id/set"
-                                    android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                    android:textSize="16sp"
-                                    android:layout_height="wrap_content" android:text="SET"/>
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="SET"
+                                    android:textColor="@color/TextColor"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="12sp"
+                                    android:autoSizeMaxTextSize="100sp"
+                                    android:autoSizeStepGranularity="2sp"
+                                    android:textStyle="bold" />
 
 
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Compra:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/comSET"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Compra:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                         />
+
+                                <TextView
+                                        android:id="@+id/comSET"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold" />
 
                             </RelativeLayout>
+
                             <RelativeLayout
-                                    android:layout_width="match_parent" android:layout_height="wrap_content">
-                                <TextView android:textColor="@color/TextColor" android:layout_width="wrap_content"
-                                          android:layout_alignParentLeft="true"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="Venta:"/>
-                                <TextView android:textColor="@color/TextColor" android:id="@+id/ventSET"
-                                          android:layout_width="wrap_content"
-                                          android:layout_alignParentRight="true"
-                                          android:layout_marginLeft="10dp"
-                                          android:textSize="16sp" android:layout_height="wrap_content"
-                                          android:text="0"/>
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:text="Venta:"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        />
+
+                                <TextView
+                                        android:id="@+id/ventSET"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="0"
+                                        android:textColor="@color/TextColor"
+                                        android:autoSizeTextType="uniform"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeMaxTextSize="100sp"
+                                        android:autoSizeStepGranularity="2sp"
+                                        android:textStyle="bold"/>
 
                             </RelativeLayout>
                         </LinearLayout>
@@ -581,7 +999,19 @@
             </ScrollView>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
     </LinearLayout>
 
+
+    <com.google.android.gms.ads.AdView
+
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/contenido"
+            android:layout_centerHorizontal="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_prueba"></com.google.android.gms.ads.AdView>
 
 </RelativeLayout>

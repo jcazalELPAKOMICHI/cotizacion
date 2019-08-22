@@ -27,8 +27,8 @@ class conversion : AppCompatActivity() {
         banco.text = intent.extras?.getString("banco")
         valorVenta.text = "Dolar Venta: Gs." + intent.extras?.getString("venta")
         valorCompra.text = "Dolar Compra: Gs." + intent.extras?.getString("compra")
-        var venta = intent.extras?.getString("venta")?.replace(".", "")?.replace(",", ".")
-        var compra = intent.extras?.getString("compra")?.replace(".", "")?.replace(",", ".")
+        var venta = intent.extras?.getString("venta")?.replace(".", "")?.replace(",", ".")?.replace("Gs. ","")
+        var compra = intent.extras?.getString("compra")?.replace(".", "")?.replace(",", ".")?.replace("Gs. ","")
         var resultado: Double
 
         conver = NumberTextWatcher(converVenta)
@@ -48,8 +48,18 @@ class conversion : AppCompatActivity() {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
-                if (!rsVenta.text.isEmpty())
-                    rsVenta.text = ""
+                if (!p0.toString().isEmpty() && !p0.toString().equals("0")) {
+                    if (venta != null) {
+                        resultado = p0.toString().replace(".","").replace(",",".").toDouble() / venta.toDouble()
+                        rsVenta.text = "Resultado: $" + decimalFormat(resultado.toString())
+                        hideSoftKeyBoard()
+                    }
+                } else {
+                    converVenta.error = "Debe de Cargar un Valor"
+                }
+
+
+
             }
 
         })
@@ -66,8 +76,17 @@ class conversion : AppCompatActivity() {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
-                if (!rsVenta.text.isEmpty())
-                    rsCompra.text = ""
+                if (!converCOMPRA.text.isEmpty() && !converCOMPRA.text.equals("0")) {
+
+                    if (compra != null) {
+                        resultado = converCOMPRA.text.toString().replace(".","").replace(",",".").toDouble() * compra.toDouble()
+                        rsCompra.text = "Resultado: Gs." + decimalFormat(resultado.toString())
+                        hideSoftKeyBoard()
+
+                    }
+                } else {
+                    converCOMPRA.error = "Debe de Cargar un Valor"
+                }
             }
 
         })
@@ -75,29 +94,11 @@ class conversion : AppCompatActivity() {
 
         btnCalcular.setOnClickListener {
 
-            if (!converVenta.text.isEmpty() && !converVenta.text.equals("0")) {
-                if (venta != null) {
-                    resultado = converVenta.text.toString().replace(".","").replace(",",".").toDouble() / venta.toDouble()
-                    rsVenta.text = "Resultado: $" + decimalFormat(resultado.toString())
-                    hideSoftKeyBoard()
-                }
-            } else {
-                converVenta.error = "Debe de Cargar un Valor"
-            }
+
         }
 
         btnCalcular2.setOnClickListener {
-            if (!converCOMPRA.text.isEmpty() && !converCOMPRA.text.equals("0")) {
 
-                if (compra != null) {
-                    resultado = converCOMPRA.text.toString().replace(".","").replace(",",".").toDouble() * compra.toDouble()
-                    rsCompra.text = "Resultado: Gs." + decimalFormat(resultado.toString())
-                    hideSoftKeyBoard()
-
-                }
-            } else {
-                converCOMPRA.error = "Debe de Cargar un Valor"
-            }
         }
 
 

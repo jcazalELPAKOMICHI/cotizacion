@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Cotización del Dolar</string>
+    <string name="banner_ad_unit_id">ca-app-pub-1097222336104871/9963366802</string>
+    <string name="banner_prueba">ca-app-pub-3940256099942544/6300978111</string>
 </resources>
