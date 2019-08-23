@@ -1,9 +1,13 @@
 package com.example.cotizaciondolar
 
+import android.app.DatePickerDialog
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.text.InputType
+import android.view.View
+import android.widget.DatePicker
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cotizaciondolar.Model.Result
@@ -19,6 +23,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
+import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -27,8 +32,12 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
     var prog: ProgressDialog? = null
-
+    private var pDay: Int = 0
+    private var pMonth: Int = 0
+    private var pYear: Int = 0
     lateinit var mAdView: AdView
+    private var minDate: Date? = null
+    private var fechaFormateadaBundle: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,7 +47,8 @@ class MainActivity : AppCompatActivity() {
         prog = ProgressDialog(this)
 
         mAdView = findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().addTestDevice("33BE2250B43518CCDA7DE426D04EE231").build()
+        val adRequest =
+            AdRequest.Builder().addTestDevice("33BE2250B43518CCDA7DE426D04EE231").build()
         mAdView.loadAd(adRequest)
 
         getCambio(true)
@@ -48,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         my_swipeRefresh_Layout.setOnRefreshListener {
             getCambio(false)
         }
+
 
 
         /*GuideView.Builder(this)
@@ -62,6 +73,9 @@ class MainActivity : AppCompatActivity() {
             .show()*/
 
     }
+
+
+
 
     private fun getRetrofit(): Retrofit {
         val interceptor = HttpLoggingInterceptor()
@@ -159,7 +173,6 @@ class MainActivity : AppCompatActivity() {
 
         return format.format(parseDate)
     }
-
 
 
     fun decimalFormat(value: String): String {
