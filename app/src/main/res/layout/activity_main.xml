@@ -28,7 +28,7 @@
             android:gravity="center_vertical"
             android:padding="10dp"
             android:text="Cotización a la Fecha"
-            android:textColor="@color/TextColor"
+            android:textColor="#fff"
             android:textSize="20sp"
             app:fontFamily="@font/alegreya_sans"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -60,7 +60,9 @@
                         android:id="@+id/lyAmambay"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/esquinas_redondeadas"
                         android:orientation="horizontal"
@@ -84,15 +86,12 @@
                                 android:id="@+id/amambay"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:autoSizeMaxTextSize="100sp"
-                                android:autoSizeMinTextSize="12sp"
-                                android:autoSizeStepGranularity="2sp"
-                                android:autoSizeTextType="uniform"
+
                                 android:text="Banco Amambay"
                                 android:textColor="@color/TextColor"
-                                android:textSize="24sp"
+                                android:textSize="30sp"
                                 android:textStyle="bold"
-                                ads:fontFamily="@font/fira_sans_condensed_extralight" />
+                                ads:fontFamily="@font/fira_sans_condensed_extralight"/>
 
 
                         <RelativeLayout
@@ -105,13 +104,10 @@
                                     android:layout_height="wrap_content"
 
                                     android:layout_alignParentLeft="true"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="Compra:"
                                     android:textColor="@color/TextColor"
-                                    android:textSize="18sp" />
+                                    android:textSize="18sp"/>
 
                             <TextView
                                     android:id="@+id/compAmambay"
@@ -119,15 +115,12 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:layout_marginLeft="10dp"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="0"
                                     android:textColor="@color/TextColor"
                                     android:textSize="18sp"
                                     android:textStyle="bold"
-                                    ads:fontFamily="@font/fira_sans_condensed_extralight" />
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"/>
 
                         </RelativeLayout>
 
@@ -142,13 +135,11 @@
                                     android:layout_height="wrap_content"
 
                                     android:layout_alignParentLeft="true"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="Venta:"
+                                    android:textStyle="bold"
                                     android:textColor="@color/TextColor"
-                                    android:textSize="18sp" />
+                                    android:textSize="18sp"/>
 
                             <TextView
                                     android:id="@+id/ventAmambay"
@@ -156,15 +147,12 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:layout_marginLeft="10dp"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="0"
                                     android:textColor="@color/TextColor"
                                     android:textSize="18sp"
                                     android:textStyle="bold"
-                                    ads:fontFamily="@font/fira_sans_condensed_extralight" />
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"/>
 
                         </RelativeLayout>
                     </LinearLayout>
@@ -175,7 +163,9 @@
                         android:id="@+id/lybbva"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/esquinas_redondeadas"
                         android:orientation="horizontal"
@@ -200,16 +190,13 @@
                                 android:id="@+id/bbva"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:autoSizeMaxTextSize="100sp"
-                                android:autoSizeMinTextSize="12sp"
-                                android:autoSizeStepGranularity="2sp"
-                                android:autoSizeTextType="uniform"
+
                                 android:text="Banco BBVA"
                                 android:textColor="@color/TextColor"
-                                android:textSize="24sp"
+                                android:textSize="30sp"
                                 android:textStyle="bold"
 
-                                ads:fontFamily="@font/fira_sans_condensed_extralight" />
+                                ads:fontFamily="@font/fira_sans_condensed_extralight"/>
 
 
                         <RelativeLayout
@@ -222,13 +209,10 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
 
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
                                     android:text="Compra:"
+                                    android:textStyle="bold"
                                     android:textColor="@color/TextColor"
-                                    android:textSize="18sp" />
+                                    android:textSize="18sp"/>
 
                             <TextView
                                     android:id="@+id/comBBVA"
@@ -236,14 +220,12 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:layout_marginLeft="10dp"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="0"
                                     android:textColor="@color/TextColor"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"/>
 
                         </RelativeLayout>
 
@@ -255,29 +237,24 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
 
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:text="Venta:"
+                                    android:textStyle="bold"
                                     android:textColor="@color/TextColor"
-                                    android:textSize="18sp" />
+                                    android:textSize="18sp"/>
 
                             <TextView
                                     android:id="@+id/ventBBVA"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
-                                    android:layout_marginLeft="10dp"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="0"
                                     android:textColor="@color/TextColor"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"/>
 
                         </RelativeLayout>
                     </LinearLayout>
@@ -288,7 +265,9 @@
                         android:id="@+id/lybcp"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/esquinas_redondeadas"
                         android:orientation="horizontal"
@@ -312,13 +291,11 @@
                                 android:id="@+id/bcp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:autoSizeMaxTextSize="100sp"
-                                android:autoSizeMinTextSize="12sp"
-                                android:autoSizeStepGranularity="2sp"
-                                android:autoSizeTextType="uniform"
+
                                 android:text="Banco Central del Paraguay"
                                 android:textColor="@color/TextColor"
-                                android:textSize="24sp"
+
+                                android:textSize="30sp"
                                 android:textStyle="bold"
 
                                 ads:fontFamily="@font/fira_sans_condensed_extralight" />
@@ -332,11 +309,11 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="Compra:"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -345,11 +322,10 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:layout_marginLeft="10dp"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -363,11 +339,11 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="Venta:"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -376,11 +352,10 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:layout_marginLeft="10dp"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -392,7 +367,9 @@
                         android:id="@+id/lyalberdi"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/esquinas_redondeadas"
                         android:orientation="horizontal"
@@ -415,13 +392,11 @@
                                 android:id="@+id/alberdi"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:autoSizeMaxTextSize="100sp"
-                                android:autoSizeMinTextSize="12sp"
-                                android:autoSizeStepGranularity="2sp"
-                                android:autoSizeTextType="uniform"
+
                                 android:text="Cambios Alberdi"
                                 android:textColor="@color/TextColor"
-                                android:textSize="24sp"
+                                android:textSize="30sp"
+
                                 android:textStyle="bold"
 
                                 ads:fontFamily="@font/fira_sans_condensed_extralight" />
@@ -435,11 +410,11 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="Compra:"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -448,11 +423,10 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:layout_marginLeft="10dp"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -466,11 +440,11 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="Venta:"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -479,11 +453,10 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:layout_marginLeft="10dp"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -496,7 +469,9 @@
                         android:id="@+id/lychaco"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/esquinas_redondeadas"
                         android:orientation="horizontal"
@@ -519,13 +494,10 @@
                                 android:id="@+id/chaco"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:autoSizeMaxTextSize="100sp"
-                                android:autoSizeMinTextSize="12sp"
-                                android:autoSizeStepGranularity="2sp"
-                                android:autoSizeTextType="uniform"
+
                                 android:text="Cambios Chaco"
                                 android:textColor="@color/TextColor"
-                                android:textSize="24sp"
+                                android:textSize="30sp"
                                 android:textStyle="bold"
 
                                 ads:fontFamily="@font/fira_sans_condensed_extralight" />
@@ -539,11 +511,11 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="Compra:"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -552,11 +524,10 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:layout_marginLeft="10dp"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -570,11 +541,11 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="Venta:"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -583,11 +554,10 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
                                     android:layout_marginLeft="10dp"
-                                    android:autoSizeMaxTextSize="100sp"
-                                    android:autoSizeMinTextSize="12sp"
-                                    android:autoSizeStepGranularity="2sp"
-                                    android:autoSizeTextType="uniform"
+
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -600,7 +570,9 @@
                         android:id="@+id/lyeuro"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/esquinas_redondeadas"
                         android:orientation="horizontal"
@@ -629,7 +601,7 @@
                                 android:autoSizeTextType="uniform"
                                 android:text="Euro Cambios"
                                 android:textColor="@color/TextColor"
-                                android:textSize="24sp"
+                                android:textSize="30sp"
                                 android:textStyle="bold"
 
                                 ads:fontFamily="@font/fira_sans_condensed_extralight" />
@@ -648,6 +620,9 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="Compra:"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -661,6 +636,8 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -679,6 +656,9 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="Venta:"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -692,6 +672,8 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -704,7 +686,9 @@
                         android:id="@+id/lyinterfisa"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/esquinas_redondeadas"
                         android:orientation="horizontal"
@@ -733,7 +717,7 @@
                                 android:autoSizeTextType="uniform"
                                 android:text="Interfisa"
                                 android:textColor="@color/TextColor"
-                                android:textSize="24sp"
+                                android:textSize="30sp"
                                 android:textStyle="bold"
 
                                 ads:fontFamily="@font/fira_sans_condensed_extralight" />
@@ -752,6 +736,9 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="Compra:"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -765,6 +752,8 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -778,9 +767,15 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
+                                    android:autoSizeMaxTextSize="100sp"
+                                    android:autoSizeMinTextSize="12sp"
+                                    android:autoSizeStepGranularity="2sp"
+                                    android:autoSizeTextType="uniform"
                                     android:text="Venta:"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
-                                    android:textSize="14sp" />
+                                    android:textStyle="bold"
+                                    android:textSize="18sp" />
 
                             <TextView
                                     android:id="@+id/ventIN"
@@ -793,6 +788,8 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -805,7 +802,9 @@
                         android:id="@+id/lymaxi"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/esquinas_redondeadas"
                         android:orientation="horizontal"
@@ -834,7 +833,7 @@
                                 android:autoSizeTextType="uniform"
                                 android:text="Maxi Cambios"
                                 android:textColor="@color/TextColor"
-                                android:textSize="24sp"
+                                android:textSize="30sp"
                                 android:textStyle="bold"
 
                                 ads:fontFamily="@font/fira_sans_condensed_extralight" />
@@ -853,6 +852,9 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="Compra:"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -866,6 +868,8 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -884,6 +888,9 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="Venta:"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -897,6 +904,8 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -909,7 +918,9 @@
                         android:id="@+id/lymyd"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/esquinas_redondeadas"
                         android:orientation="horizontal"
@@ -938,7 +949,7 @@
                                 android:autoSizeTextType="uniform"
                                 android:text="Myd Cambios"
                                 android:textColor="@color/TextColor"
-                                android:textSize="24sp"
+                                android:textSize="30sp"
                                 android:textStyle="bold"
 
                                 ads:fontFamily="@font/fira_sans_condensed_extralight" />
@@ -957,6 +968,9 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="Compra:"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -970,6 +984,8 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -988,6 +1004,9 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="Venta:"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -1001,6 +1020,8 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -1013,7 +1034,9 @@
                         android:id="@+id/lyset"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/esquinas_redondeadas"
                         android:orientation="horizontal"
@@ -1042,7 +1065,7 @@
                                 android:autoSizeTextType="uniform"
                                 android:text="SET"
                                 android:textColor="@color/TextColor"
-                                android:textSize="24sp"
+                                android:textSize="30sp"
                                 android:textStyle="bold"
 
                                 ads:fontFamily="@font/fira_sans_condensed_extralight" />
@@ -1061,6 +1084,8 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="Compra:"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -1074,6 +1099,8 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 
@@ -1092,6 +1119,9 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="Venta:"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor" />
 
                             <TextView
@@ -1105,6 +1135,8 @@
                                     android:autoSizeStepGranularity="2sp"
                                     android:autoSizeTextType="uniform"
                                     android:text="0"
+                                    android:textSize="18sp"
+                                    ads:fontFamily="@font/fira_sans_condensed_extralight"
                                     android:textColor="@color/TextColor"
                                     android:textStyle="bold" />
 

@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
         /*GuideView.Builder(this)
             .setTitle("Este Elemento es el Titulo")
             .setContentText("El Cuerpo del Texto")
@@ -73,8 +72,6 @@ class MainActivity : AppCompatActivity() {
             .show()*/
 
     }
-
-
 
 
     private fun getRetrofit(): Retrofit {
@@ -103,7 +100,9 @@ class MainActivity : AppCompatActivity() {
             uiThread {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    lbCotizacion.text = "Cotización de la Fecha \n " + dateFormat(datos.updated)
+                    lbCotizacion.text = "Cotización a la Fecha:\n" + dateFormat(datos.updated)
+                } else {
+                    lbCotizacion.text = "Cotización a la Fecha:\n" + datos.updated
                 }
                 //Banco Amambay
                 compAmambay.text = "Gs." + decimalFormat(datos.dolarpy.amambay.compra)
